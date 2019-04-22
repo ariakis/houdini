@@ -13,9 +13,10 @@ apt install hostapd aircrack-ng python3
 Run this code in terminal:
 <code>
   git clone https://github.com/ariakis/houdini/ && cd houdini
+  
   chmod +x houdini
-  cd modules && chmod +x *
-  cd ..
+  
+  cd modules && chmod +x * && cd ..
 </code>
 
 # How to use it
