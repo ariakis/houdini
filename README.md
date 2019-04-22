@@ -1,6 +1,12 @@
 # houdini
 Script to bypass WiFi captive portals (e.g. at hotels, cruise ships etc.)
 
+# Requirements (kali install and update code):
+
+<code>
+apt install hostapd aircrack-ng python3
+</code>
+
 First use:
 <code>
   git clone https://github.com/ariakis/houdini/ && cd houdini
