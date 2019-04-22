@@ -1,0 +1,61 @@
+#!/bin/bash
+testip=example.com
+maccount=$(($2-1))
+
+if [ $# -eq 5 ]
+then
+	#for i in {1..number of macs}
+	i=1
+	while [ $i -le $maccount ]; do
+		echo "Starting! Testing $maccount macs..."
+		echo ""
+
+		# Get next mac address
+		curmac=$(head -n $i $1 | tail -n 1)
+
+		# change mac address
+		echo -n "Changing MAC... "
+		modules/change_mac $curmac &> /dev/null
+		echo "Done."
+
+		# Tell the user whats happening
+                echo "$i/$2"
+		echo "MAC: $curmac"
+
+		echo -n "IP:  "
+                curip=$(ifconfig wlan0 | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+                echo "$curip"
+
+		# Try downloading site
+		wget --no-cache --no-cookies --no-http-keep-alive -T 10 --show-progress -nv $testip -o wgetout &> /dev/null
+		echo -n "Checking access... "
+
+		# Test connection
+		httpcode=$(grep -v $testip wgetout | cut -c44-)
+		echo "$httpcode"
+
+		if ( grep index.html wgetout )
+		then # Connection!
+			echo "Access detected!"
+			echo Press any key to start hotspot
+			read -n 1
+			../create_ap/create_ap wlan0 wlan0 $3 $4
+			rm index.html
+			rm wgetout
+			exit
+		else # No connection
+			echo "No access."
+		fi
+		echo ""
+		echo "----------------------------------------"
+		echo ""
+		i=$(($i + 1))
+	done
+else
+	echo ""
+	echo "Incorrect number of arguments! (detected $#)"
+	echo ""
+	echo "Useage:"
+	echo "$0 {mac address file} {macs to check} {ap name} {ap password}"
+	echo ""
+fi

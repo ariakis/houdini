@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $# -eq 1 ]
+then
+	echo ""
+	ifconfig wlan0 down
+	dhclient -r wlan0 &> /dev/null # release ip
+
+	macchanger -m $1 wlan0 # change current device mac to input mac
+
+	ifconfig wlan0 up
+	dhclient wlan0 &> /dev/null # get a new ip
+
+	echo "New mac: $1"
+	ifconfig wlan0 | grep inet
+	echo ""
+else
+	echo ""
+	echo "Incorrect number of arguments!"
+	echo ""
+	echo "Useage:"
+	echo "$0 {mac address}"
+	echo ""
+fi
