@@ -1,6 +1,8 @@
 # Houdini
 
-A script to bypass WiFi captive portals (e.g. at hotels, cruise ships etc.)
+A script to bypass a whole bunch of WiFi captive portals (e.g. at hotels, cruise ships etc.)
+
+This is the Houdini of WiFi ;)
 
 # Requirements (kali install and update code):
 
