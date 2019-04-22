@@ -12,16 +12,12 @@ apt install hostapd aircrack-ng python3
 
 Run this code in terminal:
 <code>
-  git clone https://github.com/ariakis/houdini/ && cd houdini
-  
-  chmod +x houdini
-  
-  cd modules && chmod +x * && cd ..
+  git clone https://github.com/ariakis/houdini/ && cd houdini && chmod +x houdini && cd modules && chmod +x * && cd ..
 </code>
 
 # How to use it
 
-Then just run houdini with
+Just run houdini with
 <code>
   ./houdini {name of access point once internet access is confirmed} {password of access point}
 </code>
