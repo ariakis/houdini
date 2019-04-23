@@ -27,9 +27,7 @@ cd houdini
 chmod +x houdini
 cd modules
 chmod +x *
-cd ..
-</code>
-</pre>
+cd ..</code></pre>
 
 # How to use it
 
