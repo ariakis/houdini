@@ -6,14 +6,12 @@ This is the Houdini of WiFi ;)
 
 # Dependencies
 
-<pre>
 <ul>
   <li>create_ap (https://github.com/oblique/create_ap)</li>
   <li>aircrack-ng suite</li>
   <li>python 3</li>
   <li>bash</li>
 </ul>
-</pre>
 
 # Installation
 
