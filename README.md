@@ -6,12 +6,10 @@ This is the Houdini of WiFi ;)
 
 # Dependencies
 
-<ul>
-  <li>create_ap (https://github.com/oblique/create_ap)</li>
-  <li>aircrack-ng suite</li>
-  <li>python 3</li>
-  <li>bash</li>
-</ul>
+<ul><li>create_ap (https://github.com/oblique/create_ap)</li>
+<li>aircrack-ng suite</li>
+<li>python 3</li>
+<li>bash</li></ul>
 
 # Installation
 
@@ -21,8 +19,7 @@ First install create_ap from github.
 
 Then run this in terminal:
 
-<pre><code>
-git clone https://github.com/ariakis/houdini/
+<pre><code>git clone https://github.com/ariakis/houdini/
 cd houdini
 chmod +x houdini
 cd modules
@@ -33,11 +30,7 @@ cd ..</code></pre>
 
 Just run houdini with
 
-<pre>
-<code>
-  ./houdini {name of access point once internet access is confirmed} {password of access point}
-</code>
-</pre>
+<pre><code>./houdini {name of access point once internet access is confirmed} {password of access point}</code></pre>
 
 This will start scanning for associated MAC addresses. Once there are enough clients in airodump-ng, hit ctrl-c and then wait again :)
 
