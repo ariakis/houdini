@@ -6,7 +6,12 @@ then
 	ifconfig wlan0 down
 	dhclient -r wlan0 &> /dev/null # release ip
 
-	macchanger -m $1 wlan0 # change current device mac to input mac
+	if [ "$1" = "reset" ]; then
+		echo resetting
+		macchanger -p wlan0
+	else
+		macchanger -m $1 wlan0 # change current device mac to input mac
+	fi
 
 	ifconfig wlan0 up
 	dhclient wlan0 &> /dev/null # get a new ip
