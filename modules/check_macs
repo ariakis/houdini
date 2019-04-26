@@ -2,7 +2,7 @@
 testip=example.com
 maccount=$(($2-1))
 
-if [ $# -eq 5 ]
+if [ $# -eq 3 ]
 then
 	#for i in {1..number of macs}
 	i=1
@@ -37,12 +37,22 @@ then
 		if ( grep index.html wgetout )
 		then # Connection!
 			echo "Access detected!"
-			echo Press any key to start hotspot
-			read -n 1
-			../create_ap/create_ap wlan0 wlan0 $3 $4
+			read -n 1 -p "Start hotspot? (Y/n):" starthotspot
+
+			if [ "$starthotspot"="n" ]; then
+				echo "Enjoy your free WiFi ;)"
+				echo "Exiting..."
+			else
+				read -p "Path of create_ap script: " createappath
+				read -p "Name of access point: " apname
+				read -p "AP password (min 8 chars): " appass
+				$createappath wlan0 wlan0 $apname $appass
+			fi
+
 			rm index.html
 			rm wgetout
 			exit
+
 		else # No connection
 			echo "No access."
 		fi

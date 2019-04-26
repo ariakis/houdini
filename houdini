@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -eq 2 ]; then
+if [ $# -ge 0 ]; then
 
     # Get date and time (for file names)
     dt=$(date '+%Y%m%d-%H%M')
@@ -49,7 +49,7 @@ if [ $# -eq 2 ]; then
     # start testing macs
     echo "About to start testing access..."
     clear
-    modules/check_macs harvested/$dt.macs $(wc -l harvested/$dt.macs) $2 $1
+    modules/check_macs harvested/$dt.macs $(wc -l harvested/$dt.macs)
 
 else
 
