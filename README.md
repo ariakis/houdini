@@ -30,7 +30,7 @@ cd ..</code></pre>
 
 Just run houdini with
 
-<pre><code>./houdini {name of access point once internet access is confirmed} {password of access point}</code></pre>
+<pre><code>./houdini</code></pre>
 
 This will start scanning for associated MAC addresses. Once there are enough clients in airodump-ng, hit ctrl-c and then wait again :)
 
