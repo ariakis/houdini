@@ -27,14 +27,17 @@ then
                 echo "$curip"
 
 		# Try downloading site
-		wget --no-cache --no-cookies --no-http-keep-alive -T 10 --show-progress -nv $testip -o wgetout &> /dev/null
+
+		#wget --no-cache --no-cookies --no-http-keep-alive -T 10 --show-progress -nv $testip -o wgetout &> /dev/null
 		echo -n "Checking access... "
+		httpcode=$(wget --no-cache --no-cookies --no-http-keep-alive -T 10 -S "$testip" 2>&1 | grep "HTTP/" -m 1 | awk '{print $2}')
 
 		# Test connection
-		httpcode=$(grep -v $testip wgetout | cut -c44-)
+
+		#httpcode=$(grep -v $testip wgetout | grep -v saved | cut -c44-)
 		echo "$httpcode"
 
-		if ( grep index.html wgetout )
+		if [ "$httpcode" -eq "200" ]
 		then # Connection!
 			echo "Access detected!"
 			read -n 1 -p "Start hotspot? (Y/n):" starthotspot

@@ -9,6 +9,9 @@ then
 	if [ "$1" = "reset" ]; then
 		echo resetting
 		macchanger -p wlan0
+	elif [ "$1" = "random" ]; then
+		echo randomising
+		macchanger -r wlan0
 	else
 		macchanger -m $1 wlan0 # change current device mac to input mac
 	fi
