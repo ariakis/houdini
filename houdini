@@ -13,7 +13,7 @@ if [ $# -ge 0 ]; then
     # start collecting macs
     echo "Starting airodump-ng (ctrl-c to stop)... "
     sleep 3
-    airodump-ng wlan0mon -w harvested/$dt -o csv
+    airodump-ng wlan0mon -w harvested/$dt -o csv --encrypt opn
 
     # Disable monitor mode
     echo -n "Stopping monitor mode on wlan0... "

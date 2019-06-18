@@ -53,7 +53,7 @@ then
 			fi
 
 			rm index.html
-			rm wgetout
+			#rm wgetout
 			exit
 
 		else # No connection
