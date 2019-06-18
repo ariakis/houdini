@@ -64,6 +64,8 @@ then
 		echo ""
 		i=$(($i + 1))
 	done
+	echo "No associated MAC addresses found. Exiting..."
+	exit
 else
 	echo ""
 	echo "Incorrect number of arguments! (detected $#)"
