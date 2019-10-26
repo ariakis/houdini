@@ -1,32 +1,35 @@
 #!/bin/bash
 
-if [ $# -eq 1 ]
+if [ $# -eq 3 ]
 then
+	interface=$2
+        interfacemon="${interface}mon"
+
 	echo ""
-	ifconfig wlan0 down
-	dhclient -r wlan0 &> /dev/null # release ip
+	ifconfig $interface down
+	dhclient -r $interface &> /dev/null # release ip
 
 	if [ "$1" = "reset" ]; then
 		echo resetting
-		macchanger -p wlan0
+		macchanger -p $interface
 	elif [ "$1" = "random" ]; then
 		echo randomising
-		macchanger -r wlan0
+		macchanger -r $interface
 	else
-		macchanger -m $1 wlan0 # change current device mac to input mac
+		macchanger -m $1 $interface # change current device mac to input mac
 	fi
 
-	ifconfig wlan0 up
-	dhclient wlan0 &> /dev/null # get a new ip
+	ifconfig $interface up
+	dhclient $interface &> /dev/null # get a new ip
 
 	echo "New mac: $1"
-	ifconfig wlan0 | grep inet
+	ifconfig $interface | grep inet
 	echo ""
 else
 	echo ""
 	echo "Incorrect number of arguments!"
 	echo ""
 	echo "Useage:"
-	echo "$0 {mac address}"
+	echo "$0 {mac address} {interface}"
 	echo ""
 fi

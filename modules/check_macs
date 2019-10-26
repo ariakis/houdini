@@ -1,8 +1,10 @@
 #!/bin/bash
 testip=example.com
 maccount=$(($2-1))
+interface=$4
+interfacemon="${interface}mon"
 
-if [ $# -eq 3 ]
+if [ $# -eq 4 ]
 then
 	#for i in {1..number of macs}
 	i=1
@@ -15,7 +17,7 @@ then
 
 		# change mac address
 		echo -n "Changing MAC... "
-		modules/change_mac $curmac &> /dev/null
+		modules/change_mac $curmac $interface &> /dev/null
 		echo "Done."
 
 		# Tell the user whats happening
@@ -23,7 +25,7 @@ then
 		echo "MAC: $curmac"
 
 		echo -n "IP:  "
-                curip=$(ifconfig wlan0 | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+                curip=$(ifconfig $interface | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
                 echo "$curip"
 
 		# Try downloading site
@@ -49,7 +51,7 @@ then
 				read -p "Path of create_ap script: " createappath
 				read -p "Name of access point: " apname
 				read -p "AP password (min 8 chars): " appass
-				$createappath wlan0 wlan0 $apname $appass
+				$createappath $interface $interface $apname $appass
 			fi
 
 			rm index.html
@@ -71,6 +73,6 @@ else
 	echo "Incorrect number of arguments! (detected $#)"
 	echo ""
 	echo "Useage:"
-	echo "$0 {mac address file} {macs to check} {ap name} {ap password}"
+	echo "$0 {mac address file} {macs to check} {interface}"
 	echo ""
 fi
