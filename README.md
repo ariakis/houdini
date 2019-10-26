@@ -30,7 +30,11 @@ cd ..</code></pre>
 
 Just run houdini with
 
-<pre><code>./houdini</code></pre>
+<pre><code>./houdini {wireless interface name}</code></pre>
+
+For example, if your interface was called <code>wlan0</code, then you would run
+
+<pre><code>./houdini wlan0</code></pre>
 
 This will start scanning for associated MAC addresses. Once there are enough clients in airodump-ng, hit ctrl-c and then wait again :)
 
