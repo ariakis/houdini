@@ -32,7 +32,7 @@ Just run houdini with
 
 <pre><code>./houdini {wireless interface name}</code></pre>
 
-For example, if your interface was called <code>wlan0</code, then you would run
+For example, if your interface was called <code>wlan0</code>, then you would run
 
 <pre><code>./houdini wlan0</code></pre>
 
