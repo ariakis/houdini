@@ -36,5 +36,3 @@ If one of the MACs does have internet access, you'll be asked if you would like 
 If it doesn't work at first, maybe try walking around with your device in order to gain more MAC addresses to check.
 
 That's it. Please forgive ugly code, and enjoy!
-
-- ariakis
