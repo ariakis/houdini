@@ -45,6 +45,7 @@ then
 			read -n 1 -p "Start hotspot? (Y/n):" starthotspot
 
 			if [ "$starthotspot" = "n" ]; then
+				echo
 				echo "Enjoy your free WiFi ;)"
 				echo "Exiting..."
 			else
