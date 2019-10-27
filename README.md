@@ -16,7 +16,6 @@ It's pretty easy! Just execute the following commands:
 
 <pre><code>git clone https://github.com/ariakis/houdini/
 cd houdini
-chmod +x install
 ./install</code></pre>
 
 # How to use it
