@@ -1,0 +1,23 @@
+#!/bin/bash
+
+curdir=$(pwd)
+logfile=installlog.txt
+
+echo "Thanks for using houdini! Today's installation log file will be in $curdir/installlog.txt!"
+
+echo "`date` - Apt updating..." | tee -a $logfile
+sudo apt-get update | tee -a $logfile
+
+echo "`date` - installing dependencies..." | tee -a $logfile
+sudo apt-get install -y aircrack-ng python3 git | tee -a $logfile
+
+echo "`date` - cloning create_ap..."
+git clone https://github.com/oblique/create_ap | tee -a $logfile
+
+echo "`date` - setting execution permisson..." | tee -a $logfile
+chmod +x houdini | tee -a $logfile
+chmod +x modules/* | tee -a $logfile
+
+echo "`date` - Finish." >> $logfile
+
+echo "Done!"

@@ -48,10 +48,10 @@ then
 				echo "Enjoy your free WiFi ;)"
 				echo "Exiting..."
 			else
-				read -p "Path of create_ap script: " createappath
+				read -p "Path of create_ap folder (usually just create_ap unless you moved it): " createappath
 				read -p "Name of access point: " apname
 				read -p "AP password (min 8 chars): " appass
-				$createappath $interface $interface $apname $appass
+				$createappath/create_ap $interface $interface $apname $appass
 			fi
 
 			rm index.html
