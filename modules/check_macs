@@ -32,7 +32,7 @@ then
 
 		#wget --no-cache --no-cookies --no-http-keep-alive -T 10 --show-progress -nv $testip -o wgetout &> /dev/null
 		echo -n "Checking access... "
-		httpcode=$(wget --no-cache --no-cookies --no-http-keep-alive -T 10 -S "$testip" 2>&1 | grep "HTTP/" -m 1 | awk '{print $2}')
+		httpcode=$(wget -O "/dev/null" --no-cache --no-cookies --no-http-keep-alive -T 10 -S "$testip" 2>&1 | grep "HTTP/" -m 1 | awk '{print $2}')
 
 		# Test connection
 
@@ -48,14 +48,24 @@ then
 				echo "Enjoy your free WiFi ;)"
 				echo "Exiting..."
 			else
-				read -p "Path of create_ap folder (usually just create_ap unless you moved it): " createappath
+				createappath="create_ap" # read -p "Path of create_ap folder (usually just create_ap unless you moved it): " createappath
 				read -p "Name of access point: " apname
-				read -p "AP password (min 8 chars): " appass
+
+				doLoop=1
+				while [ $doLoop = 1 ]
+				do
+					read -p "AP password (min 8 chars): " appass
+					if [ ${#appass} -lt 8 ] ; then
+						echo "Password is not long enough! 8 chars minimum please :)"
+					else
+						doLoop=0
+					fi
+				done
+
 				$createappath/create_ap $interface $interface $apname $appass
 			fi
 
-			rm index.html
-			#rm wgetout
+			# script end :)
 			exit
 
 		else # No connection
