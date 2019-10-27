@@ -19,8 +19,6 @@ cd houdini
 chmod +x install
 ./install</code></pre>
 
-Thats it!
-
 # How to use it
 
 Just run houdini with
@@ -31,10 +29,12 @@ For example, if your interface was called <code>wlan0</code>, then you would run
 
 <pre><code>./houdini wlan0</code></pre>
 
-This will start scanning for associated MAC addresses. Once there are enough clients in airodump-ng, hit ctrl-c and then each mac collected will be checked. If one of the has internet access, you can either start a hotspot on your device (if you're nice and want to share) or just keep it all for yourself :)
+This will start scanning for associated MAC addresses. Once there are enough clients in airodump-ng, hit ctrl-c and then each MAC collected will be checked for internet access.
+
+If one of the MACs does have internet access, you'll be asked if you would like to start a hotspot on your device (if you're nice and want to share) or just keep it all for yourself. Mwahahahaa.
 
 If it doesn't work at first, maybe try walking around with your device in order to gain more MAC addresses to check.
 
-Please forgive ugly code, and enjoy!
+That's it. Please forgive ugly code, and enjoy!
 
 - ariakis
