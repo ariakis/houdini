@@ -12,11 +12,9 @@ This is the Houdini of WiFi ;)
 
 <h3>General installation</h3> 
 
-It's pretty easy! Just execute the following commands:
+It's pretty easy! Just execute the following command:
 
-<pre><code>git clone https://github.com/ariakis/houdini/
-cd houdini
-./install</code></pre>
+<pre><code>git clone https://github.com/ariakis/houdini/ && cd houdini && bash install</code></pre>
 
 # How to use it
 
