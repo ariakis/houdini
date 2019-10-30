@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root."
+  exit
+fi
+
 if [ $# -ge 1 ]; then
 
     interface=$1
