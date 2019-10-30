@@ -4,7 +4,7 @@ maccount=$(($2-1))
 interface=$4
 interfacemon="${interface}mon"
 
-if [ $# -eq 4 ]
+if [ $# -eq 3 ]
 then
 	#for i in {1..number of macs}
 	i=1
@@ -17,7 +17,7 @@ then
 
 		# change mac address
 		echo -n "Changing MAC... "
-		modules/change_mac $curmac $interface &> /dev/null
+		sudo modules/change_mac $curmac $interface &> /dev/null
 		echo "Done."
 
 		# Tell the user whats happening

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -eq 3 ]
+if [ $# -eq 2 ]
 then
 	interface=$2
         interfacemon="${interface}mon"
