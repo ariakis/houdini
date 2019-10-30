@@ -18,7 +18,7 @@ then
 
 		# change mac address
 		echo -n "Changing MAC... "
-		sudo modules/change_mac $curmac $interface &> /dev/null
+		sudo modules/change_mac $curmac $interface
 		echo "Done."
 
 		# Tell the user whats happening
