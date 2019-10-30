@@ -6,6 +6,7 @@ interfacemon="${interface}mon"
 
 if [ $# -eq 3 ]
 then
+	pwd
 	#for i in {1..number of macs}
 	i=1
 	while [ $i -le $maccount ]; do
@@ -17,7 +18,7 @@ then
 
 		# change mac address
 		echo -n "Changing MAC... "
-		sudo ./change_mac $curmac $interface
+		sudo modules/change_mac $curmac $interface &> /dev/null
 		echo "Done."
 
 		# Tell the user whats happening
