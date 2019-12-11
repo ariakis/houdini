@@ -1,8 +1,7 @@
 #!/bin/bash
 testip=example.com
-maccount=$(($2-1))
+maccount=$(($2))
 interface=$3
-interfacemon="${interface}mon"
 
 if [ $# -eq 3 ]
 then

@@ -60,13 +60,11 @@ for row in reader:
 
 			print(str(counter)+". "+str(row[0])) # say we've found a mac
 
-			if (counter > 1): # this ensures there's no blank lines
-				outputFile.write("\n")
+			outputFile.write(row[0]+'\n') # write mac to file
 
-			outputFile.write(row[0]) # write mac to file
 			counter = counter + 1
 
-print("Found",counter,"MAC addresses!")
+print("Found",counter,"associated MAC addresses!")
 
 inputFile.close()
 outputFile.close()
