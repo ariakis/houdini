@@ -81,7 +81,7 @@ else
     echo "Incorrect number of arguments!"
     echo ""
     echo "Useage:"
-    echo "$0 {interface name} {essid of AP to attack}"
+    echo "$0 {interface name} {target AP name}"
     echo ""
 
 fi
