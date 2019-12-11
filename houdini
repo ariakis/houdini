@@ -36,7 +36,7 @@ if [ $# -ge 2 ]; then
     # start collecting macs
     echo "Starting airodump-ng to check clients connected to $essid (ctrl-c to stop)... "
     sleep 3
-    airodump-ng $interfacemon -w harvested/$dt -o csv -a #--essid "$essid" 
+    airodump-ng $interfacemon -w harvested/$dt -o csv -a #--essid "$essid" # -b a # remove first hash if using 5ghz. will implement a switch later
 
     # Disable monitor mode
     echo -n "Stopping monitor mode on $interface... "
