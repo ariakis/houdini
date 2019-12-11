@@ -14,6 +14,6 @@ sudo apt-get install -y aircrack-ng python3 git | tee -a $logfile
 echo "`date` - cloning git repos..."
 git clone https://github.com/oblique/create_ap | tee -a $logfile
 
-echo "`date` - Finish." >> $logfile
+echo "`date` - Finish. You can delete the install script if you want ;)" >> $logfile
 
 echo "Done!"
